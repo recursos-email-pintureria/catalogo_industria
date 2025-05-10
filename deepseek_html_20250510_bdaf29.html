@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Profesional | La Pinturería</title>
+    <style>
+        :root {
+            --color-primary: #0056b3;
+            --color-secondary: #003366;
+            --color-accent: #28a745;
+            --color-text: #333333;
+            --color-light: #f5f5f5;
+            --color-border: #dddddd;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        .catalog-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .logo {
+            max-width: 220px;
+            margin-bottom: 20px;
+        }
+        
+        h1, h2, h3 {
+            color: var(--color-secondary);
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .intro {
+            font-size: 18px;
+            margin-bottom: 30px;
+            padding: 0 30px;
+        }
+        
+        .category-section {
+            padding: 0 30px 30px;
+        }
+        
+        .category-title {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 15px 20px;
+            font-size: 22px;
+            margin: 30px 0 20px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-title .icon {
+            margin-right: 15px;
+            font-size: 24px;
+        }
+        
+        .product-card {
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .product-header {
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .product-title {
+            font-size: 22px;
+            color: var(--color-secondary);
+            margin: 0 0 5px;
+        }
+        
+        .product-code {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .features-list {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+        
+        .feature-item {
+            margin-bottom: 12px;
+            position: relative;
+        }
+        
+        .feature-item:before {
+            content: "•";
+            color: var(--color-primary);
+            position: absolute;
+            left: -20px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        
+        .specs-table th, .specs-table td {
+            border: 1px solid var(--color-border);
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .specs-table th {
+            background-color: var(--color-light);
+            width: 30%;
+        }
+        
+        .view-btn {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .view-btn:hover {
+            background-color: var(--color-secondary);
+        }
+        
+        .pdf-container {
+            margin-top: 20px;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+        }
+        
+        .close-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .footer {
+            background-color: var(--color-light);
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .contact-info {
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        
+        .disclaimer {
+            font-size: 12px;
+            color: #777;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .catalog-container {
+                box-shadow: none;
+            }
+            
+            .header, .category-section {
+                padding: 20px 15px;
+            }
+            
+            .specs-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .pdf-viewer {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="catalog-container">
+        <div class="header">
+            <img src="https://recursos-email-pintureria.github.io/documentos-pintureria/la%20pintureria.jpg" alt="La Pinturería" class="logo">
+            <h1>Catálogo Profesional de Pinturas Industriales</h1>
+            <p>Soluciones técnicas para aplicaciones profesionales</p>
+        </div>
+        
+        <div class="intro">
+            <p>En La Pinturería desarrollamos productos de alto rendimiento para aplicaciones industriales exigentes. Este catálogo presenta nuestras soluciones más avanzadas con especificaciones técnicas detalladas.</p>
+        </div>
+        
+        <!-- Sección DL18-PUR-840-G -->
+        <div class="category-section">
+            <div class="category-title">
+                <span class="icon">🏭</span>
+                <span>DL18-PUR-840-G - Poliuretánico Antioxidante Alto Brillo</span>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-header">
+                    <h2 class="product-title">DL18-PUR-840-G</h2>
+                    <div class="product-code">Código: DL18-PUR-840-G | Poliuretánico Antioxidante 2K - Alto Brillo</div>
+                </div>
+                
+                <h3>Características principales:</h3>
+                <ul class="features-list">
+                    <li class="feature-item">Excelente resistencia química (aceites, ácidos, bases)</li>
+                    <li class="feature-item">Protección anticorrosiva DTM (Direct-To-Metal) de larga duración</li>
+                    <li class="feature-item">Aplicación directa sobre múltiples superficies</li>
+                    <li class="feature-item">Resistencia ignífuga CLASE B-s1, d0</li>
+                    <li class="feature-item">Disponible en colores estándar y personalizados</li>
+                </ul>
+                
+                <h3>Especificaciones técnicas:</h3>
+                <table class="specs-table">
+                    <tr>
+                        <th>Propiedad</th>
+                        <th>Valor</th>
+                    </tr>
+                    <tr>
+                        <td>Color</td>
+                        <td>Gris estándar (otros colores bajo pedido)</td>
+                    </tr>
+                    <tr>
+                        <td>Acabado</td>
+                        <td>Alto brillo (85-90%)</td>
+                    </tr>
+                    <tr>
+                        <td>Resistencia a temperatura</td>
+                        <td>-30°C a +120°C</td>
+                    </tr>
+                    <tr>
+                        <td>Tiempo de secado (23°C)</td>
+                        <td>4-6 horas (toque), 24 horas (total)</td>
+                    </tr>
+                    <tr>
+                        <td>Tipo de aplicación</td>
+                        <td>DTM (Direct-To-Metal) - Aplicación directa sobre metal</td>
+                    </tr>
+                </table>
+                
+                <button class="view-btn" onclick="showPdf('DL18')">Ver Ficha Técnica Completa</button>
+                
+                <div id="pdf-container-DL18" class="pdf-container">
+                    <object data="https://github.com/recursos-email-pintureria/catalogo-productos-industriales/raw/main/DL18-PUR-840-G-es_0321.pdf" type="application/pdf" class="pdf-viewer">
+                        <p>Tu navegador no soporta visualización de PDFs. Por favor <a href="https://github.com/recursos-email-pintureria/catalogo-productos-industriales/raw/main/DL18-PUR-840-G-es_0321.pdf">descarga el archivo</a> para verlo.</p>
+                    </object>
+                    <button class="close-btn" onclick="hidePdf('DL18')">Cerrar Ficha Técnica</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección DL19-PUR-840-M -->
+        <div class="category-section">
+            <div class="category-title">
+                <span class="icon">🏗️</span>
+                <span>DL19-PUR-840-M - Poliuretánico Antioxidante Mate</span>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-header">
+                    <h2 class="product-title">DL19-PUR-840-M</h2>
+                    <div class="product-code">Código: DL19-PUR-840-M | Poliuretánico Antioxidante 2K - Mate</div>
+                </div>
+                
+                <h3>Características principales:</h3>
+                <ul class="features-list">
+                    <li class="feature-item">Poliuretánico antioxidante 2 componentes con acabado mate</li>
+                    <li class="feature-item">Protección anticorrosiva DTM (Direct-To-Metal)</li>
+                    <li class="feature-item">Adherencia directa sobre hierro, acero inoxidable, galvanizado y aluminio</li>
+                    <li class="feature-item">Resistencia ignífuga CLASE B-s1, d0 según EN 13501-1</li>
+                </ul>
+                
+                <h3>Especificaciones técnicas:</h3>
+                <table class="specs-table">
+                    <tr>
+                        <th>Propiedad</th>
+                        <th>Valor</th>
+                    </tr>
+                    <tr>
+                        <td>Color</td>
+                        <td>Gris mate estándar (otros colores bajo pedido)</td>
+                    </tr>
+                    <tr>
+                        <td>Acabado</td>
+                        <td>Mate</td>
+                    </tr>
+                    <tr>
+                        <td>Resistencia a temperatura</td>
+                        <td>-30°C a +100°C</td>
+                    </tr>
+                    <tr>
+                        <td>Tiempo de secado (23°C)</td>
+                        <td>6-8 horas (toque), 24 horas (manipulación)</td>
+                    </tr>
+                    <tr>
+                        <td>Tipo de aplicación</td>
+                        <td>DTM (Direct-To-Metal) - Aplicación directa sobre metal</td>
+                    </tr>
+                </table>
+                
+                <button class="view-btn" onclick="showPdf('DL19')">Ver Ficha Técnica Completa</button>
+                
+                <div id="pdf-container-DL19" class="pdf-container">
+                    <object data="https://github.com/recursos-email-pintureria/catalogo-productos-industriales/raw/main/DL19-PUR-840-M-es_0722.pdf" type="application/pdf" class="pdf-viewer">
+                        <p>Tu navegador no soporta visualización de PDFs. Por favor <a href="https://github.com/recursos-email-pintureria/catalogo-productos-industriales/raw/main/DL19-PUR-840-M-es_0722.pdf">descarga el archivo</a> para verlo.</p>
+                    </object>
+                    <button class="close-btn" onclick="hidePdf('DL19')">Cerrar Ficha Técnica</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="contact-info">
+                <p><strong>La Pinturería</strong></p>
+                <p>C/ Industrial 123, 28000 Madrid</p>
+                <p>Tel: 999 999 999 | Email: info@lapintureria.es</p>
+                <p>www.lapintureria.es</p>
+            </div>
+            <div class="disclaimer">
+                <p>Los datos técnicos pueden variar según condiciones de aplicación. Consulte siempre la ficha técnica más reciente.</p>
+                <p>Catálogo válido hasta diciembre 2025 | Versión 1.0</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPdf(productId) {
+            // Oculta todos los visores primero
+            document.querySelectorAll('.pdf-container').forEach(container => {
+                container.style.display = 'none';
+            });
+            
+            // Muestra el visor correspondiente
+            const pdfContainer = document.getElementById(`pdf-container-${productId}`);
+            pdfContainer.style.display = 'block';
+            
+            // Desplaza suavemente hasta el visor
+            pdfContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function hidePdf(productId) {
+            const pdfContainer = document.getElementById(`pdf-container-${productId}`);
+            pdfContainer.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
